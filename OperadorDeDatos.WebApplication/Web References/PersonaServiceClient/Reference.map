@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?xsd=xsd2" filename="PersonaWCF.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?xsd=xsd1" filename="PersonaWCF0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?disco" filename="PersonaWCF.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?xsd=xsd4" filename="PersonaWCF1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?xsd=xsd0" filename="PersonaWCF2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?wsdl" filename="PersonaWCF.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://desktop-m08phgf/OperadorDeDatos.WCF/PersonaWCF.svc?xsd=xsd3" filename="PersonaWCF3.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace OperadorDeDatoss.WebApplication.Models
+{
+	public class PersonaModel
+	{
+		public string DocumentoIdentidad { get; set; }
+		public string Nombres { get; set; }
+		public string Apellidos { get; set; }
+		public DateTime FechaNacimiento { get; set; }
+		public List<string> NumerosTelefonicos { get; set; } = new List<string>();
+		public List<string> CorreosElectronicos { get; set; } = new List<string>();
+		public List<string> DireccionesFisicas { get; set; } = new List<string>();
+	}
+}

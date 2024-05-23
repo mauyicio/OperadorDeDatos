@@ -1,0 +1,150 @@
+﻿@model OperadorDeDatoss.WebApplication.Models.PersonaModel
+@{
+    ViewBag.Title = "Registrar Persona";
+}
+
+<html>
+
+<body>
+    <div class="container">
+        <h2>Registrar Persona</h2>
+        @using (Html.BeginForm("RegistrarPersona", "Persona", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="DocumentoIdentidad">Documento Identidad</label>
+                @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @required = "required" })
+            </div>
+            <div class="form-group">
+                <label for="Nombres">Nombres</label>
+                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @required = "required" })
+            </div>
+            <div class="form-group">
+                <label for="Apellidos">Apellidos</label>
+                @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control", @required = "required" })
+            </div>
+            <div class="form-group">
+                <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                @Html.TextBoxFor(m => m.FechaNacimiento, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date", @required = "required" })
+            </div>
+
+            <!-- Correos Electrónicos -->
+            <div class="form-group">
+                <label for="CorreosElectronicos">Correos Electrónicos</label>
+                <div id="correosContainer">
+                    @if (Model != null && Model.CorreosElectronicos != null)
+                    {
+                        for (int i = 0; i < Model.CorreosElectronicos.Count(); i++)
+                        {
+                            <div class="input-group mb-3">
+                                @Html.TextBoxFor(m => m.CorreosElectronicos[i], new { @class = "form-control" })
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <button class="btn btn-outline-secondary" type="button" onclick="agregarCorreo()">Agregar Correo</button>
+            </div>
+
+            <!-- Direcciones Físicas -->
+            <div class="form-group">
+                <label for="DireccionesFisicas">Direcciones Físicas</label>
+                <div id="direccionesContainer">
+                    @if (Model != null && Model.DireccionesFisicas != null)
+                    {
+                        for (int i = 0; i < Model.DireccionesFisicas.Count(); i++)
+                        {
+                            <div class="input-group mb-3">
+                                @Html.TextBoxFor(m => m.DireccionesFisicas[i], new { @class = "form-control" })
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <button class="btn btn-outline-secondary" type="button" onclick="agregarDireccion()">Agregar Dirección</button>
+            </div>
+
+            <!-- Números Telefónicos -->
+            <div class="form-group">
+                <label for="NumerosTelefonicos">Números Telefónicos</label>
+                <div id="telefonosContainer">
+                    @if (Model != null && Model.NumerosTelefonicos != null)
+                    {
+                        for (int i = 0; i < Model.NumerosTelefonicos.Count(); i++)
+                        {
+                            <div class="input-group mb-3">
+                                @Html.TextBoxFor(m => m.NumerosTelefonicos[i], new { @class = "form-control" })
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <button class="btn btn-outline-secondary" type="button" onclick="agregarTelefono()">Agregar Teléfono</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        }
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-info mt-3">
+                <p>@ViewBag.Message</p>
+            </div>
+        }
+    </div>
+
+    <script>
+        function agregarCorreo() {
+            var container = document.getElementById("correosContainer");
+            var index = container.children.length;
+            var inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-3";
+            inputGroup.innerHTML = `<input type="email" name="CorreosElectronicos[${index}]" class="form-control" />` +
+                '<div class="input-group-append">' +
+                '<button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>' +
+                '</div>';
+            container.appendChild(inputGroup);
+        }
+
+        function agregarDireccion() {
+            var container = document.getElementById("direccionesContainer");
+            var index = container.children.length;
+            var inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-3";
+            inputGroup.innerHTML = `<input type="text" name="DireccionesFisicas[${index}]" class="form-control" />` +
+                '<div class="input-group-append">' +
+                '<button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>' +
+                '</div>';
+            container.appendChild(inputGroup);
+        }
+
+        function agregarTelefono() {
+            var container = document.getElementById("telefonosContainer");
+            var index = container.children.length;
+            var inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-3";
+            inputGroup.innerHTML = `<input type="tel" name="NumerosTelefonicos[${index}]" class="form-control" />` +
+                '<div class="input-group-append">' +
+                '<button class="btn btn-outline-danger" type="button" onclick="eliminarElemento(this)">Eliminar</button>' +
+                '</div>';
+            container.appendChild(inputGroup);
+        }
+
+        function eliminarElemento(button) {
+            var inputGroup = button.parentNode.parentNode;
+            inputGroup.parentNode.removeChild(inputGroup);
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    .form-group {
+        margin-bottom: 1rem;
+    }
+</style>

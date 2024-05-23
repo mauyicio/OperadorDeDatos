@@ -1,0 +1,27 @@
+CREATE TABLE Personas (
+    DocumentoIdentidad NVARCHAR(50) PRIMARY KEY,
+    Nombres NVARCHAR(100) NOT NULL,
+    Apellidos NVARCHAR(100) NOT NULL,
+    FechaNacimiento DATE NOT NULL
+);
+
+CREATE TABLE Telefonos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    DocumentoIdentidad NVARCHAR(50) NOT NULL,
+    Telefono NVARCHAR(20) NOT NULL,
+    FOREIGN KEY (DocumentoIdentidad) REFERENCES Personas(DocumentoIdentidad)
+);
+
+CREATE TABLE Correos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    DocumentoIdentidad NVARCHAR(50) NOT NULL,
+    CorreoElectronico NVARCHAR(100) NOT NULL,
+    FOREIGN KEY (DocumentoIdentidad) REFERENCES Personas(DocumentoIdentidad)
+);
+
+CREATE TABLE Direcciones (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    DocumentoIdentidad NVARCHAR(50) NOT NULL,
+    DireccionFisica NVARCHAR(200) NOT NULL,
+    FOREIGN KEY (DocumentoIdentidad) REFERENCES Personas(DocumentoIdentidad)
+);
